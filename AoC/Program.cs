@@ -4,7 +4,7 @@ using AoC._2022.Common;
 using System.Runtime.CompilerServices;
 
 
-var input = await Input.GetInput(3);
+var input = await Input.GetInput(4);
 
-Console.WriteLine(Day3.Part2(input));
+Console.WriteLine(Day4.Part2(input));
 Console.Read();
