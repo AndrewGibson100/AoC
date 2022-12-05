@@ -19,13 +19,11 @@ namespace AoC._2022
         public static int Part2(string input) =>
             input.Split("\n")
                 .Where(line => !string.IsNullOrEmpty(line))
-                .Select((line, i) => new { Line = line, Index = i })
-                .GroupBy(val => val.Index / 3)
+                .Chunk(3)
                 .Select(elfGroup =>
                     elfGroup.ElementAt(0)
-                        .Line
-                        .Intersect(elfGroup.ElementAt(1).Line)
-                        .Intersect(elfGroup.ElementAt(2).Line)
+                        .Intersect(elfGroup.ElementAt(1))
+                        .Intersect(elfGroup.ElementAt(2))
                         .First())
                 .Select(Priority)
                 .Sum();
