@@ -12,31 +12,31 @@ namespace AoC._2022
         {
             var inputLines = input.Split("\n");
 
-            var crateLines = GetStacks(inputLines);
+            var stacks = GetStacks(inputLines);
 
             foreach (var move in GetMoves(inputLines))
                 foreach (var crateToMove in Enumerable.Range(0, move[0])
-                                                    .Select(x => crateLines[move[1] - 1].Pop()))
-                        crateLines[move[2] - 1].Push(crateToMove);
+                                                    .Select(x => stacks[move[1] - 1].Pop()))
+                        stacks[move[2] - 1].Push(crateToMove);
 
             return new string(
-                crateLines.Select(x => x.Pop()).ToArray());
+                stacks.Select(x => x.Pop()).ToArray());
         }
 
         public static string Part2(string input)
         {
             var inputLines = input.Split("\n");
 
-            var crateLines = GetStacks(inputLines);
+            var stacks = GetStacks(inputLines);
 
             foreach (var move in GetMoves(inputLines))
                 foreach (var stackToMove in Enumerable.Range(0, move[0])
-                                                    .Select(x => crateLines[move[1] - 1].Pop())
+                                                    .Select(x => stacks[move[1] - 1].Pop())
                                                     .Reverse())
-                        crateLines[move[2] - 1].Push(stackToMove);
+                        stacks[move[2] - 1].Push(stackToMove);
 
             return new string(
-                crateLines.Select(x => x.Pop()).ToArray());
+                stacks.Select(x => x.Pop()).ToArray());
         }
 
         private static Stack<char>[] GetStacks(string[] inputLines) =>
