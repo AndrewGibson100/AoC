@@ -2,9 +2,9 @@
 using AoC._2022;
 using AoC._2022.Common;
 using System.Runtime.CompilerServices;
+using System.Text;
 
+var input = await Input.GetInput(5);
 
-var input = await Input.GetInput(4);
-
-Console.WriteLine(Day4.Part2(input));
+Console.WriteLine(Day5.Part2(input));
 Console.Read();
